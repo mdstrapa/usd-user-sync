@@ -1,0 +1,29 @@
+sandra_valiati;244;0001
+antonio_iale;523;0010
+elmar_kullmann;247;0003
+analise_vieira;244;0004
+loridane_vanz;228;0040
+claudemir_wendel;247;0004
+luiz_locatelli;247;0005
+mauri_baldasso;259;0001
+claudio_campos;663;0008
+joao_nunes;247;0001
+jose_argenton;226;0001
+fabio_martins;119;0007
+santos_gilson;738;0026
+ ;806;0156
+jaqueline_glaucia;810;0005
+debora_marlene;913;0008
+oliveira_estefani;913;0002
+lucas_juliani;806;0156
+ ;1500;10433
+paula_mota;806;0156
+matheus_prunes;101;0018
+cristian_castro;101;0044
+bittencourt_aline;1500;28235
+aline_passos;9900;3710
+brito_ana;806;0020
+thaina_silva;101;0041
+ ;2001;0001
+martins_paula;2001;0002
+ ;821;0004
