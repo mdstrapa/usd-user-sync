@@ -125,14 +125,16 @@ public class Usd {
 
     private String formatCompanyCode(String companyCode, String uaCode){
 
-        if (!companyCode.startsWith("15")){
-            if (companyCode.equals("9900"))    companyCode = "1504"; //banco cooperativo Sicrdi
-            else{
+        //o codigo do banco é tratado de forma especial
+
+//            if (companyCode.equals("9900"))  companyCode = "1504"; //banco cooperativo Sicrdi
+//            else if (companyCode.equals("1500")) companyCode = "1504"; //Confederaçao sicredi
+//            else{
                 if (companyCode.length() == 3)     companyCode = "0" + companyCode;
                 companyCode = companyCode + formatUaCode(uaCode);
-            }
-        }
-        if(log.isDebugEnabled()) log.debug("The gerated company code is {}",companyCode);
+            //}
+
+        log.info("The gerated company code is {}",companyCode);
         return companyCode;
     }
 

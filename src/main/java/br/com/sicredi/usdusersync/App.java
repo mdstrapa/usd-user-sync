@@ -21,7 +21,7 @@ public class App {
 
         Integer totalUserCreated = 0, totalExistentUser = 0, totalErrors = 0;
         InputStream inputStream;
-        String logFileName = "users.csv";
+        String logFileName = "novos_colegas_out_nov.csv";
         inputStream = getClass().getClassLoader().getResourceAsStream(logFileName);
 
         Connection usdDBConnection = usd.createDBConnection();
@@ -33,32 +33,32 @@ public class App {
                 String logLine = fileReader.nextLine();
                 String userAttributes[] = logLine.split(";");
 
-                log.info("Processing User: Login: " + userAttributes[0] + " | Name: " + userAttributes[1]);
+                log.info("Processing User: Login: " + userAttributes[8] + " | Name: " + userAttributes[4]);
 
-                if(!usd.checkIfUserExists(userAttributes[0],usdDBConnection)) {
+                if(!usd.checkIfUserExists(userAttributes[8],usdDBConnection)) {
 
-                    log.info("User {} will be created.",userAttributes[0]);
+                    log.info("User {} will be created.",userAttributes[8]);
 
-                    UsdCompany userCompany = usd.getCompany(userAttributes[2],userAttributes[6],usdDBConnection);
+                    UsdCompany userCompany = usd.getCompany(userAttributes[0],userAttributes[2],usdDBConnection);
 
-                    if (userCompany.getREL_ATTR().equals("NOT FOUND")){
-                        log.info("The company {} - {} was not found.",userAttributes[2],userAttributes[3]);
+                    if (userCompany.getREL_ATTR().equals("U'NOT FOUND'")){
+                        log.info("The company {} - {} was not found.",userAttributes[0],userAttributes[1]);
                     }else{
                         log.info("The company id {}.",userCompany.getREL_ATTR());
+                        UsdContact newContact = new UsdContact(userAttributes[8],userAttributes[4],userAttributes[7],userAttributes[6],userCompany);
+
+                        if (usd.createUser(newContact)) {
+                            log.info("User {} created!", userAttributes[4]);
+                            totalUserCreated++;
+                        }
+                        else {
+                            log.error("An error has ocurred. User {} not created.", userAttributes[4]);
+                            totalErrors++;
+                        }
                     }
 
-                    UsdContact newContact = new UsdContact(userAttributes[0],userAttributes[1],userAttributes[5],userAttributes[4],userCompany);
-
-                    if (usd.createUser(newContact)) {
-                        log.info("User {} created!", userAttributes[1]);
-                        totalUserCreated++;
-                    }
-                    else {
-                        log.error("An error has ocurred. User {} not created.", userAttributes[1]);
-                        totalErrors++;
-                    }
                 }else{
-                    log.info("User {} already exists.",userAttributes[0]);
+                    log.info("User {} already exists.",userAttributes[8]);
                     totalExistentUser++;
                 }
 
