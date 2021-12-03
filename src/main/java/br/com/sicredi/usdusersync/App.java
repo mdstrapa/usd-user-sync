@@ -21,7 +21,7 @@ public class App {
 
         Integer totalUserCreated = 0, totalExistentUser = 0, totalErrors = 0;
         InputStream inputStream;
-        String logFileName = "novos_colegas_out_nov.csv";
+        String logFileName = "colaboradores_nov.csv";
         inputStream = getClass().getClassLoader().getResourceAsStream(logFileName);
 
         Connection usdDBConnection = usd.createDBConnection();
